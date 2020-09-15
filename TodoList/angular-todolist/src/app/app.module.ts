@@ -11,6 +11,7 @@ import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './components/pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,21 @@ import { RouterModule } from '@angular/router';
     TodosComponent,
     AddTodoComponent,
     HeaderComponent,
-    AboutComponent
+    AboutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {
+        path: '', component: HomeComponent
+      },
+      {
+        path: 'about', component: AboutComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
